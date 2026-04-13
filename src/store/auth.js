@@ -15,6 +15,7 @@ export const useAuthStore = create(
         try {
           const response = await api.post('/auth/login', credentials);
           const { user, token } = response.data.data;
+          localStorage.setItem('auth-token', token);
           set({ user, token, isLoading: false });
           return { success: true, user };
         } catch (error) {
@@ -52,7 +53,7 @@ export const useAuthStore = create(
     }),
     {
       name: 'auth-storage',
-      partialize: (state) => ({ token: state.token, user: state.user })
+      partialize: (state) => ({ token: state.token, user: state.user }),
     }
   )
 );
