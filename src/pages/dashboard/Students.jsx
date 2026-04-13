@@ -131,7 +131,7 @@ export default function Students() {
           <h1 className="text-2xl font-bold text-slate-900">Students</h1>
           <p className="text-slate-600">Manage student records</p>
         </div>
-        <button onClick={openModal} className="btn-primary">
+        <button onClick={openNewModal} className="btn-primary">
           <Plus className="w-5 h-5" />
           Add Student
         </button>
@@ -185,7 +185,7 @@ export default function Students() {
                           <Edit className="w-4 h-4 text-slate-600" />
                         </button>
                         <button
-                          onClick={() => handleDelete(student.id)}
+                          onClick={() => setDeleteStudent({ id: student._id || student.id })}
                           className="p-2 hover:bg-red-50 rounded-lg transition-colors"
                         >
                           <Trash2 className="w-4 h-4 text-red-600" />
@@ -332,6 +332,16 @@ export default function Students() {
             </form>
           </div>
         </div>
+      )}
+
+      {deleteStudent && (
+        <ConfirmDialog
+          open={!!deleteStudent}
+          onClose={() => setDeleteStudent(null)}
+          onConfirm={handleDelete}
+          title="Delete Student"
+          message="Are you sure you want to delete this student? This action cannot be undone."
+        />
       )}
     </div>
   );

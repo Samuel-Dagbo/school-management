@@ -110,7 +110,7 @@ export default function TeacherAssignments() {
               </thead>
               <tbody>
                 {assignments.map((assignment) => (
-                  <tr key={assignment.id}>
+                  <tr key={assignment._id || assignment.id}>
                     <td className="font-medium">
                       {assignment.teacher?.firstName} {assignment.teacher?.lastName}
                     </td>
@@ -124,7 +124,7 @@ export default function TeacherAssignments() {
                     </td>
                     <td>
                       <button
-                        onClick={() => handleDelete(assignment.id)}
+                        onClick={() => handleDelete(assignment._id || assignment.id)}
                         className="p-2 text-red-600 hover:bg-red-50 rounded-lg"
                       >
                         <Trash2 className="w-4 h-4" />

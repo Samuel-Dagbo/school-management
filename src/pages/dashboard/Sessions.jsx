@@ -146,7 +146,7 @@ export default function Sessions() {
                   <button onClick={() => openEditModal(session)} className="p-2 hover:bg-slate-100 rounded-lg">
                     <Edit className="w-4 h-4 text-slate-600" />
                   </button>
-                  <button onClick={() => setDeleteSession(session)} className="p-2 hover:bg-red-50 rounded-lg">
+                  <button onClick={() => setDeleteSession({ id: session._id || session.id })} className="p-2 hover:bg-red-50 rounded-lg">
                     <Trash2 className="w-4 h-4 text-red-500" />
                   </button>
                 </div>

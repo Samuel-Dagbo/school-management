@@ -177,7 +177,7 @@ export default function Teachers() {
                         <button onClick={() => openEditModal(teacher)} className="p-2 hover:bg-slate-100 rounded-lg transition-colors">
                           <Edit className="w-4 h-4 text-slate-600" />
                         </button>
-                        <button onClick={() => setDeleteTeacher(teacher)} className="p-2 hover:bg-red-50 rounded-lg transition-colors">
+                        <button onClick={() => setDeleteTeacher({ id: teacher._id || teacher.id })} className="p-2 hover:bg-red-50 rounded-lg transition-colors">
                           <Trash2 className="w-4 h-4 text-red-500" />
                         </button>
                       </div>

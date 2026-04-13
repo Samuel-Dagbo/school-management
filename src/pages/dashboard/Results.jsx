@@ -367,7 +367,7 @@ export default function Results() {
                       <td>
                         {!result.isPublished ? (
                           <button
-                            onClick={() => handlePublishResult(result.id)}
+                            onClick={() => handlePublishResult(result._id || result.id)}
                             className="btn-secondary text-sm py-1"
                           >
                             Publish

@@ -78,7 +78,7 @@ export default function AdmissionsList() {
               </thead>
               <tbody>
                 {admissions.map((admission) => (
-                  <tr key={admission.id}>
+                  <tr key={admission._id || admission.id}>
                     <td className="font-medium">{admission.firstName} {admission.lastName}</td>
                     <td className="capitalize">{admission.gender}</td>
                     <td>{admission.appliedClass}</td>
@@ -101,14 +101,14 @@ export default function AdmissionsList() {
                       {admission.status === 'pending' && (
                         <div className="flex items-center gap-2">
                           <button
-                            onClick={() => handleStatus(admission.id, 'accepted')}
+                            onClick={() => handleStatus(admission._id || admission.id, 'accepted')}
                             className="p-2 hover:bg-green-50 rounded-lg"
                             title="Accept"
                           >
                             <Check className="w-4 h-4 text-green-600" />
                           </button>
                           <button
-                            onClick={() => handleStatus(admission.id, 'rejected')}
+                            onClick={() => handleStatus(admission._id || admission.id, 'rejected')}
                             className="p-2 hover:bg-red-50 rounded-lg"
                             title="Reject"
                           >

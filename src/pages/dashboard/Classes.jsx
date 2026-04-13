@@ -137,7 +137,7 @@ export default function Classes() {
                     <Edit className="w-4 h-4" />
                     Edit
                   </button>
-                  <button onClick={() => setDeleteClass(cls)} className="p-2 hover:bg-red-50 text-red-500 rounded-lg transition-colors">
+                  <button onClick={() => setDeleteClass({ id: cls._id || cls.id })} className="p-2 hover:bg-red-50 text-red-500 rounded-lg transition-colors">
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
